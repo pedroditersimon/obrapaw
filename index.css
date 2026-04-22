@@ -539,6 +539,15 @@ input[name="service-accordion"]:checked ~ .acc-content {
     background-color: #ff7c29;
 }
 
+.plan-subtitle {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 5px;
+    text-transform: none;
+}
+
 .service-info strong {
     font-size: 1.1rem;
     color: var(--text-dark);
