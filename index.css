@@ -1,6 +1,6 @@
 :root {
     --primary: #ff914d;
-    --accent: #5ce1e6;
+    --accent: #87ced4;
     --secondary: #6b7280;
     --bg-light: #f9fafb;
     --white: #ffffff;
@@ -719,4 +719,94 @@ input[name="service-accordion"]:checked ~ .acc-content {
 
 .service-details li {
     margin-bottom: 4px;
+}
+
+/* Pricing Table Folders */
+.category-header {
+    transition: background-color 0.2s;
+}
+.category-header:hover {
+    background-color: #ffd8c4 !important;
+}
+.category-group.collapsed .service-row {
+    display: none !important;
+}
+
+/* Plan Selector Styles */
+.plan-option input[type="radio"]:checked + .plan-btn {
+    background-color: var(--primary);
+    color: var(--white);
+    font-weight: bold;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+.plan-option .plan-btn {
+    transition: all 0.3s ease;
+}
+
+/* Top Bar */
+.top-bar {
+    background-color: var(--accent);
+    color: var(--text-dark);
+    font-weight: 800;
+    padding: 10px 0;
+    font-size: 0.95rem;
+}
+.top-bar-content {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.top-bar .social-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+}
+.top-bar .social-link:hover {
+    color: var(--white);
+    transform: translateY(-1px);
+}
+
+/* Footer Badges */
+.social-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+    padding: 0;
+}
+.social-badges .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 800;
+    transition: var(--transition);
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    text-decoration: none;
+    border: 2px solid transparent;
+}
+.social-badges .badge:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+.social-badges .badge.ig:hover { border-color: #E1306C; color: #E1306C; }
+.social-badges .badge.wa:hover { border-color: #25D366; color: #25D366; }
+.social-badges .badge.loc:hover { border-color: var(--primary); color: var(--primary); }
+
+/* Remove bold from individual service items */
+.service-info strong {
+    font-weight: 500 !important;
+}
+
+/* Letra tierna para los servicios */
+.category-header td,
+.service-info strong,
+.service-info span,
+.btn-toggle-cat {
+    font-family: 'Quicksand', 'Outfit', sans-serif !important;
 }

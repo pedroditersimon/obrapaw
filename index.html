@@ -7,9 +7,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <a href="https://wa.me/5493765021819" target="_blank" class="social-link">💬 376-502-1819</a>
+            <a href="https://www.instagram.com/somosobrapaw?igsh=Y3lzNDN0OGFhOWJz" target="_blank" class="social-link">📷 @somosobrapaw</a>
+            <span class="social-link">📍 AV Francisco de Haro 5253</span>
+        </div>
+    </div>
     <header class="header">
         <nav class="container">
             <div class="logo">
@@ -138,6 +146,24 @@
                 <h2 class="section-title">Planes y Coberturas</h2>
                 <p class="section-subtitle">Armá el plan que se adapte a tus necesidades y a tu presupuesto</p>
                 
+                <div class="plan-selector">
+                    <h3 style="text-align: center; margin-bottom: 15px; color: var(--text-dark);">Selecciona el plan que vas a armar:</h3>
+                    <div class="plan-options" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 30px;">
+                        <label class="plan-option" style="cursor: pointer;">
+                            <input type="radio" name="selected-plan" value="basico" checked hidden>
+                            <span class="plan-btn btn btn-outline" style="padding: 10px 20px;">Básico (hasta 10)</span>
+                        </label>
+                        <label class="plan-option" style="cursor: pointer;">
+                            <input type="radio" name="selected-plan" value="medio" hidden>
+                            <span class="plan-btn btn btn-outline" style="padding: 10px 20px;">Medio (hasta 16)</span>
+                        </label>
+                        <label class="plan-option" style="cursor: pointer;">
+                            <input type="radio" name="selected-plan" value="premium" hidden>
+                            <span class="plan-btn btn btn-outline" style="padding: 10px 20px;">Premium (Libre)</span>
+                        </label>
+                    </div>
+                </div>
+
                 <form id="pricing-form" class="pricing-table-container">
                     <table class="pricing-table">
                         <thead>
@@ -150,94 +176,335 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="service-info" style="vertical-align: top;">
-                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:5px;">
-                                        <input type="checkbox" class="category-cb" style="margin-right:8px;">
-                                        <strong>Servicios Veterinarios</strong>
-                                    </label>
-                                    <br><span style="padding-left:30px; font-size:0.85rem; color:#6b7280; display:inline-block; margin-bottom:5px;">Todas las veces que tu mascota lo necesite</span>
-                                    <div style="padding-left:30px; font-size:0.8rem; color:#9ca3af;">Incluye: Consulta clínica, Consulta de urgencia, Internación 24 hs, Cirugía básica, Cesárea, Castración, Radiografía simple, Ecografía, Análisis de sangre, Eutanasia y Crematorio.</div>
+                                <td colspan="4" style="background-color:#fff5f0; color:var(--text-dark); font-weight:800; font-size:1.1rem; padding:15px 25px;">
+                                    🏥 Servicios Veterinarios
                                 </td>
-                                <td><span class="row-val-basico" style="color:var(--primary); font-weight:bold;">✓</span></td>
-                                <td><span class="row-val-medio" style="color:var(--primary); font-weight:bold;">✓</span></td>
-                                <td><span class="row-val-premium" style="color:var(--primary); font-weight:bold;">✓</span></td>
+                            </tr>
+                            <tr class="service-row">
+                                <td class="service-info" style="vertical-align: top; padding: 10px 25px;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:0;">
+                                        <input type="checkbox" class="service-cb" data-basico="4300" data-medio="8600" data-premium="15050" style="margin-right:8px;">
+                                        <strong>Consulta clínica</strong>
+                                    </label>
+                                </td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$4300</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$8600</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$15050</span></td>
+                            </tr>
+                            <tr class="service-row">
+                                <td class="service-info" style="vertical-align: top; padding: 10px 25px;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:0;">
+                                        <input type="checkbox" class="service-cb" data-basico="6500" data-medio="13000" data-premium="22750" style="margin-right:8px;">
+                                        <strong>Consulta de urgencia</strong>
+                                    </label>
+                                </td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$6500</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$13000</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$22750</span></td>
+                            </tr>
+
+                            <tr class="service-row">
+                                <td class="service-info" style="vertical-align: top; padding: 10px 25px;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:0;">
+                                        <input type="checkbox" class="service-cb" data-basico="12500" data-medio="25000" data-premium="43750" style="margin-right:8px;">
+                                        <strong>Internación 24 hs</strong>
+                                    </label>
+                                </td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$12500</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$25000</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$43750</span></td>
+                            </tr>
+                            <tr class="service-row">
+                                <td class="service-info" style="vertical-align: top; padding: 10px 25px;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:0;">
+                                        <input type="checkbox" class="service-cb" data-basico="23000" data-medio="46000" data-premium="80500" style="margin-right:8px;">
+                                        <strong>Cirugía básica</strong>
+                                    </label>
+                                </td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$23000</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$46000</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$80500</span></td>
+                            </tr>
+                            <tr class="service-row">
+                                <td class="service-info" style="vertical-align: top; padding: 10px 25px;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:0;">
+                                        <input type="checkbox" class="service-cb" data-basico="40000" data-medio="80000" data-premium="140000" style="margin-right:8px;">
+                                        <strong>Cesárea</strong>
+                                    </label>
+                                </td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$40000</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$80000</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$140000</span></td>
+                            </tr>
+                            <tr class="service-row">
+                                <td class="service-info" style="vertical-align: top; padding: 10px 25px;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:0;">
+                                        <input type="checkbox" class="service-cb" data-basico="4500" data-medio="9000" data-premium="15750" style="margin-right:8px;">
+                                        <strong>Castración</strong>
+                                    </label>
+                                </td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$4500</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$9000</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$15750</span></td>
+                            </tr>
+
+                            <tr class="service-row">
+                                <td class="service-info" style="vertical-align: top; padding: 10px 25px;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:0;">
+                                        <input type="checkbox" class="service-cb" data-basico="4500" data-medio="9000" data-premium="15750" style="margin-right:8px;">
+                                        <strong>Radiografía simple</strong>
+                                    </label>
+                                </td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$4500</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$9000</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$15750</span></td>
+                            </tr>
+                            <tr class="service-row">
+                                <td class="service-info" style="vertical-align: top; padding: 10px 25px;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:0;">
+                                        <input type="checkbox" class="service-cb" data-basico="5700" data-medio="11400" data-premium="19950" style="margin-right:8px;">
+                                        <strong>Ecografía</strong>
+                                    </label>
+                                </td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$5700</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$11400</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$19950</span></td>
+                            </tr>
+                            <tr class="service-row">
+                                <td class="service-info" style="vertical-align: top; padding: 10px 25px;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:0;">
+                                        <input type="checkbox" class="service-cb" data-basico="5800" data-medio="11600" data-premium="20300" style="margin-right:8px;">
+                                        <strong>Análisis de sangre</strong>
+                                    </label>
+                                </td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$5800</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$11600</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$20300</span></td>
                             </tr>
                             <tr>
-                                <td class="service-info" style="vertical-align: top;">
-                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:5px;">
-                                        <input type="checkbox" class="category-cb" style="margin-right:8px;">
-                                        <strong>Medicamentos</strong>
-                                    </label>
-                                    <br><span style="padding-left:30px; font-size:0.85rem; color:#6b7280; display:inline-block; margin-bottom:5px;">Todas las veces que tu mascota lo necesite</span>
-                                    <div style="padding-left:30px; font-size:0.8rem; color:#9ca3af;">Incluye: Medicación en general, Vacuna antirrábica, Vacuna séxtuple / quíntuple, Triple felina y Desparasitación.</div>
+                                <td colspan="4" style="background-color:#fff5f0; color:var(--text-dark); font-weight:800; font-size:1.1rem; padding:15px 25px;">
+                                    💊 Medicamentos
                                 </td>
-                                <td><span class="row-val-basico" style="color:var(--primary); font-weight:bold;">✓</span></td>
-                                <td><span class="row-val-medio" style="color:var(--primary); font-weight:bold;">✓</span></td>
-                                <td><span class="row-val-premium" style="color:var(--primary); font-weight:bold;">✓</span></td>
+                            </tr>
+                            <tr class="service-row">
+                                <td class="service-info" style="vertical-align: top; padding: 10px 25px;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:0;">
+                                        <input type="checkbox" class="service-cb" data-basico="16300" data-medio="32600" data-premium="57050" style="margin-right:8px;">
+                                        <strong>Medicación general</strong>
+                                    </label>
+                                </td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$16300</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$32600</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$57050</span></td>
+                            </tr>
+
+                            <tr class="service-row">
+                                <td class="service-info" style="vertical-align: top; padding: 10px 25px;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:0;">
+                                        <input type="checkbox" class="service-cb" data-basico="3800" data-medio="7600" data-premium="13300" style="margin-right:8px;">
+                                        <strong>Vacuna antirrábica</strong>
+                                    </label>
+                                </td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$3800</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$7600</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$13300</span></td>
+                            </tr>
+                            <tr class="service-row">
+                                <td class="service-info" style="vertical-align: top; padding: 10px 25px;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:0;">
+                                        <input type="checkbox" class="service-cb" data-basico="8200" data-medio="16400" data-premium="28700" style="margin-right:8px;">
+                                        <strong>Vacuna séxtuple / quíntuple</strong>
+                                    </label>
+                                </td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$8200</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$16400</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$28700</span></td>
+                            </tr>
+                            <tr class="service-row">
+                                <td class="service-info" style="vertical-align: top; padding: 10px 25px;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:0;">
+                                        <input type="checkbox" class="service-cb" data-basico="4200" data-medio="8400" data-premium="14700" style="margin-right:8px;">
+                                        <strong>Triple felina</strong>
+                                    </label>
+                                </td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$4200</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$8400</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$14700</span></td>
+                            </tr>
+                            <tr class="service-row">
+                                <td class="service-info" style="vertical-align: top; padding: 10px 25px;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:0;">
+                                        <input type="checkbox" class="service-cb" data-basico="2300" data-medio="4600" data-premium="8050" style="margin-right:8px;">
+                                        <strong>Desparasitación</strong>
+                                    </label>
+                                </td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$2300</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$4600</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$8050</span></td>
                             </tr>
                             <tr>
-                                <td class="service-info" style="vertical-align: top;">
-                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:5px;">
-                                        <input type="checkbox" class="category-cb" style="margin-right:8px;">
-                                        <strong>Bienestar</strong>
-                                    </label>
-                                    <br><span style="padding-left:30px; font-size:0.85rem; color:#6b7280; display:inline-block; margin-bottom:5px;">1 vez por mes en cada servicio</span>
-                                    <div style="padding-left:30px; font-size:0.8rem; color:#9ca3af;">Incluye: Baño, Corte de uñas, Limpieza dental, Peluquería, Nutricionista y Guardería.</div>
+                                <td colspan="4" style="background-color:#fff5f0; color:var(--text-dark); font-weight:800; font-size:1.1rem; padding:15px 25px;">
+                                    🛁 Bienestar
                                 </td>
-                                <td><span class="row-val-basico" style="color:var(--primary); font-weight:bold;">✓</span></td>
-                                <td><span class="row-val-medio" style="color:var(--primary); font-weight:bold;">✓</span></td>
-                                <td><span class="row-val-premium" style="color:var(--primary); font-weight:bold;">✓</span></td>
+                            </tr>
+                            <tr class="service-row">
+                                <td class="service-info" style="vertical-align: top; padding: 10px 25px;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:0;">
+                                        <input type="checkbox" class="service-cb" data-basico="2600" data-medio="5200" data-premium="9100" style="margin-right:8px;">
+                                        <strong>Baño</strong>
+                                    </label>
+                                </td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$2600</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$5200</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$9100</span></td>
+                            </tr>
+                            <tr class="service-row">
+                                <td class="service-info" style="vertical-align: top; padding: 10px 25px;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:0;">
+                                        <input type="checkbox" class="service-cb" data-basico="1600" data-medio="3200" data-premium="5600" style="margin-right:8px;">
+                                        <strong>Corte de uñas</strong>
+                                    </label>
+                                </td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$1600</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$3200</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$5600</span></td>
+                            </tr>
+                            <tr class="service-row">
+                                <td class="service-info" style="vertical-align: top; padding: 10px 25px;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:0;">
+                                        <input type="checkbox" class="service-cb" data-basico="13500" data-medio="27000" data-premium="47250" style="margin-right:8px;">
+                                        <strong>Limpieza dental</strong>
+                                    </label>
+                                </td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$13500</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$27000</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$47250</span></td>
+                            </tr>
+                            <tr class="service-row">
+                                <td class="service-info" style="vertical-align: top; padding: 10px 25px;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:0;">
+                                        <input type="checkbox" class="service-cb" data-basico="3500" data-medio="7000" data-premium="12250" style="margin-right:8px;">
+                                        <strong>Peluquería</strong>
+                                    </label>
+                                </td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$3500</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$7000</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$12250</span></td>
+                            </tr>
+                            <tr class="service-row">
+                                <td class="service-info" style="vertical-align: top; padding: 10px 25px;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:0;">
+                                        <input type="checkbox" class="service-cb" data-basico="8500" data-medio="17000" data-premium="29750" style="margin-right:8px;">
+                                        <strong>Nutricionista</strong>
+                                    </label>
+                                </td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$8500</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$17000</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$29750</span></td>
                             </tr>
                             <tr>
-                                <td class="service-info" style="vertical-align: top;">
-                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:5px;">
-                                        <input type="checkbox" class="category-cb" style="margin-right:8px;">
-                                        <strong>Terapias Alternativas</strong>
-                                    </label>
-                                    <br><span style="padding-left:30px; font-size:0.85rem; color:#6b7280; display:inline-block; margin-bottom:5px;">Hasta 10 veces al año en cada servicio</span>
-                                    <div style="padding-left:30px; font-size:0.8rem; color:#9ca3af;">Incluye: Fisioterapias, rehabilitación y Homeopatía.</div>
+                                <td colspan="4" style="background-color:#fff5f0; color:var(--text-dark); font-weight:800; font-size:1.1rem; padding:15px 25px;">
+                                    🌿 Terapias Alternativa
                                 </td>
-                                <td><span class="row-val-basico" style="color:var(--primary); font-weight:bold;">✓</span></td>
-                                <td><span class="row-val-medio" style="color:var(--primary); font-weight:bold;">✓</span></td>
-                                <td><span class="row-val-premium" style="color:var(--primary); font-weight:bold;">✓</span></td>
+                            </tr>
+                            <tr class="service-row">
+                                <td class="service-info" style="vertical-align: top; padding: 10px 25px;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:0;">
+                                        <input type="checkbox" class="service-cb" data-basico="7000" data-medio="14000" data-premium="24500" style="margin-right:8px;">
+                                        <strong>Fisioterapia / rehabilitación</strong>
+                                    </label>
+                                </td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$7000</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$14000</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$24500</span></td>
+                            </tr>
+                            <tr class="service-row">
+                                <td class="service-info" style="vertical-align: top; padding: 10px 25px;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:0;">
+                                        <input type="checkbox" class="service-cb" data-basico="6500" data-medio="13000" data-premium="22750" style="margin-right:8px;">
+                                        <strong>Homeopatía</strong>
+                                    </label>
+                                </td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$6500</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$13000</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$22750</span></td>
                             </tr>
                             <tr>
-                                <td class="service-info" style="vertical-align: top;">
-                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:5px;">
-                                        <input type="checkbox" class="category-cb" style="margin-right:8px;">
-                                        <strong>Alimentos</strong>
-                                    </label>
-                                    <br><span style="padding-left:30px; font-size:0.85rem; color:#6b7280; display:inline-block; margin-bottom:5px;">Tope $10k/mes</span>
-                                    <div style="padding-left:30px; font-size:0.8rem; color:#9ca3af;">Incluye: Alimento seco, alimentos húmedos y dieta Barf.</div>
+                                <td colspan="4" style="background-color:#fff5f0; color:var(--text-dark); font-weight:800; font-size:1.1rem; padding:15px 25px;">
+                                    🍖 Alimentos
                                 </td>
-                                <td><span class="row-val-basico" style="color:var(--primary); font-weight:bold;">✓</span></td>
-                                <td><span class="row-val-medio" style="color:var(--primary); font-weight:bold;">✓</span></td>
-                                <td><span class="row-val-premium" style="color:var(--primary); font-weight:bold;">✓</span></td>
+                            </tr>
+                            <tr class="service-row">
+                                <td class="service-info" style="vertical-align: top; padding: 10px 25px;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:0;">
+                                        <input type="checkbox" class="service-cb" data-basico="1200" data-medio="2400" data-premium="4200" style="margin-right:8px;">
+                                        <strong>Secos</strong>
+                                    </label>
+                                </td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$1200</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$2400</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$4200</span></td>
+                            </tr>
+                            <tr class="service-row">
+                                <td class="service-info" style="vertical-align: top; padding: 10px 25px;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:0;">
+                                        <input type="checkbox" class="service-cb" data-basico="1020" data-medio="2040" data-premium="3570" style="margin-right:8px;">
+                                        <strong>Húmedos</strong>
+                                    </label>
+                                </td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$1020</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$2040</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$3570</span></td>
+                            </tr>
+                            <tr class="service-row">
+                                <td class="service-info" style="vertical-align: top; padding: 10px 25px;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:0;">
+                                        <input type="checkbox" class="service-cb" data-basico="1000" data-medio="2000" data-premium="3500" style="margin-right:8px;">
+                                        <strong>BARF por kilo</strong>
+                                    </label>
+                                </td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$1000</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$2000</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$3500</span></td>
                             </tr>
                             <tr>
-                                <td class="service-info" style="vertical-align: top;">
-                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:5px;">
-                                        <input type="checkbox" class="category-cb" style="margin-right:8px;">
+                                <td colspan="4" style="background-color:#fff5f0; color:var(--text-dark); font-weight:800; font-size:1.1rem; padding:15px 25px;">
+                                    🚗 Traslado
+                                </td>
+                            </tr>
+                            <tr class="service-row">
+                                <td class="service-info" style="vertical-align: top; padding: 10px 25px;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:0;">
+                                        <input type="checkbox" class="service-cb" data-basico="4000" data-medio="8000" data-premium="14000" style="margin-right:8px;">
                                         <strong>Traslado</strong>
                                     </label>
-                                    <br><span style="padding-left:30px; font-size:0.85rem; color:#6b7280;">Hasta 10 veces por mes</span>
                                 </td>
-                                <td><span class="row-val-basico" style="color:var(--primary); font-weight:bold;">✓</span></td>
-                                <td><span class="row-val-medio" style="color:var(--primary); font-weight:bold;">✓</span></td>
-                                <td><span class="row-val-premium" style="color:var(--primary); font-weight:bold;">✓</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$4000</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$8000</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">$14000</span></td>
                             </tr>
                             <tr>
-                                <td class="service-info" style="vertical-align: top;">
-                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:5px;">
-                                        <input type="checkbox" class="category-cb" style="margin-right:8px;">
-                                        <strong>Collar Con GPS</strong>
-                                    </label>
-                                    <br><span style="padding-left:30px; font-size:0.85rem; color:#6b7280; display:inline-block; margin-bottom:5px;">Dispositivo de seguimiento</span>
-                                    <div style="padding-left:30px; font-size:0.8rem; color:#9ca3af;">Se entrega dispositivo sin costo.</div>
+                                <td colspan="4" style="background-color:#fff5f0; color:var(--text-dark); font-weight:800; font-size:1.1rem; padding:15px 25px;">
+                                    📡 Collar Con GPS
                                 </td>
-                                <td><span class="row-val-basico" style="color:var(--primary); font-weight:bold;">✓</span></td>
-                                <td><span class="row-val-medio" style="color:var(--primary); font-weight:bold;">✓</span></td>
-                                <td><span class="row-val-premium" style="color:var(--primary); font-weight:bold;">✓</span></td>
+                            </tr>
+                            <tr class="service-row" id="row-collar">
+                                <td class="service-info" style="vertical-align: top; padding: 10px 25px;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:0;">
+                                        <input type="checkbox" class="service-cb cb-collar" data-basico="0" data-medio="0" data-premium="0" style="margin-right:8px;">
+                                        <strong>Collar GPS</strong>
+                                        <span style="display: block; font-size: 0.85rem; color: var(--text-muted); margin-top: 5px; padding-left: 35px;">Solo disponible con Plan Premium. Incluido sin costo extra.</span>
+                                    </label>
+                                </td>
+                                <td style="padding: 10px 25px; text-align: center;"><span class="not-included" style="color:#e5e7eb;">No disponible</span></td>
+                                <td style="padding: 10px 25px; text-align: center;"><span class="not-included" style="color:#e5e7eb;">No disponible</span></td>
+                                <td style="padding: 10px 25px;"><span style="color:var(--primary); font-weight:bold;">Incluido</span></td>
+                            </tr>
+                            <tr class="total-row">
+                                <td style="font-size:1.2rem; font-weight:800; text-align:right; padding: 20px 25px;">TOTAL ESTIMADO:</td>
+                                <td class="total-cell" id="total-basico" style="padding: 20px 25px; color:var(--primary); font-size:1.2rem; font-weight:800;">$0</td>
+                                <td class="total-cell" id="total-medio" style="padding: 20px 25px; color:var(--primary); font-size:1.2rem; font-weight:800;">$0</td>
+                                <td class="total-cell" id="total-premium" style="padding: 20px 25px; color:var(--primary); font-size:1.2rem; font-weight:800;">$0</td>
                             </tr>
                         </tbody>
                     </table>
@@ -264,6 +531,14 @@
                     </div>
                     <p>La cobertura que acompaña en cada huella.</p>
                 </div>
+                <div class="footer-contact llamativo">
+                    <h4>Contacto</h4>
+                    <ul class="social-badges">
+                        <li><a href="https://www.instagram.com/somosobrapaw?igsh=Y3lzNDN0OGFhOWJz" class="badge ig" target="_blank">📷 @somosobrapaw</a></li>
+                        <li><a href="https://wa.me/5493765021819" class="badge wa" target="_blank">💬 376-502-1819</a></li>
+                        <li><span class="badge loc">📍 AV Francisco de Haro 5253</span></li>
+                    </ul>
+                </div>
                 <div class="footer-links">
                     <h4>Legales</h4>
                     <ul>
@@ -277,5 +552,127 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkboxes = document.querySelectorAll('.service-cb:not(.cb-collar)');
+            const collarCb = document.querySelector('.cb-collar');
+            const collarRow = document.getElementById('row-collar');
+            const planRadios = document.querySelectorAll('input[name="selected-plan"]');
+            const tBasico = document.getElementById('total-basico');
+            const tMedio = document.getElementById('total-medio');
+            const tPremium = document.getElementById('total-premium');
+
+            function getSelectedPlan() {
+                const checked = document.querySelector('input[name="selected-plan"]:checked');
+                return checked ? checked.value : 'basico';
+            }
+
+            function applyLimits() {
+                const plan = getSelectedPlan();
+                let limit = Infinity;
+                if (plan === 'basico') limit = 10;
+                else if (plan === 'medio') limit = 16;
+
+                // Count regular checked boxes
+                let checkedCount = 0;
+                checkboxes.forEach(cb => {
+                    if (cb.checked) checkedCount++;
+                });
+
+                // Disable unchecked boxes if limit reached
+                checkboxes.forEach(cb => {
+                    if (!cb.checked) {
+                        cb.disabled = checkedCount >= limit;
+                        cb.closest('.service-row').style.opacity = cb.disabled ? '0.5' : '1';
+                    } else {
+                        cb.disabled = false;
+                        cb.closest('.service-row').style.opacity = '1';
+                    }
+                });
+
+                // Collar GPS logic
+                if (collarRow && collarCb) {
+                    if (plan === 'premium') {
+                        collarRow.style.opacity = '1';
+                        collarCb.disabled = false;
+                    } else {
+                        collarRow.style.opacity = '0.5';
+                        collarCb.checked = false;
+                        collarCb.disabled = true;
+                    }
+                }
+
+                updateTotals();
+            }
+
+            function updateTotals() {
+                const plan = getSelectedPlan();
+                let sumB = 0, sumM = 0, sumP = 0;
+                
+                checkboxes.forEach(cb => {
+                    if (cb.checked) {
+                        if (plan === 'basico') sumB += parseInt(cb.getAttribute('data-basico')) || 0;
+                        if (plan === 'medio') sumM += parseInt(cb.getAttribute('data-medio')) || 0;
+                        if (plan === 'premium') sumP += parseInt(cb.getAttribute('data-premium')) || 0;
+                    }
+                });
+                
+                tBasico.innerText = plan === 'basico' ? '$' + sumB.toLocaleString('es-AR') : '-';
+                tMedio.innerText = plan === 'medio' ? '$' + sumM.toLocaleString('es-AR') : '-';
+                tPremium.innerText = plan === 'premium' ? '$' + sumP.toLocaleString('es-AR') : '-';
+            }
+
+            planRadios.forEach(radio => radio.addEventListener('change', applyLimits));
+            checkboxes.forEach(cb => cb.addEventListener('change', applyLimits));
+            if(collarCb) collarCb.addEventListener('change', updateTotals);
+
+            // Dynamically manage collapsible categories without needing multiple tbodys
+            const headers = document.querySelectorAll('td[colspan="4"]');
+            headers.forEach(header => {
+                const title = header.innerText.replace('▼', '').trim();
+                header.style.cursor = 'pointer';
+                header.style.userSelect = 'none';
+                header.innerHTML = `
+                    <div style="display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; width: 100%;">
+                        <span>${title}</span>
+                        <span class="btn-toggle-cat" style="color: var(--accent); font-size: 0.85rem; font-weight:800; text-decoration: underline; margin-top: 8px;">VER MAS DETALLES ▼</span>
+                    </div>`;
+
+                header.classList.add('collapsed');
+                let next = header.parentElement.nextElementSibling;
+                while (next && !next.querySelector('td[colspan="4"]') && !next.classList.contains('total-row')) {
+                    next.style.display = 'none';
+                    next = next.nextElementSibling;
+                }
+
+                header.addEventListener('click', () => {
+                    const tr = header.parentElement;
+                    let next = tr.nextElementSibling;
+                    const isCollapsed = header.classList.contains('collapsed');
+                    const toggleText = header.querySelector('.btn-toggle-cat');
+                    
+                    if (isCollapsed) {
+                        header.classList.remove('collapsed');
+                        toggleText.innerText = 'OCULTAR DETALLES ▲';
+                        while (next && !next.querySelector('td[colspan="4"]') && !next.classList.contains('total-row')) {
+                            next.style.display = 'table-row';
+                            next = next.nextElementSibling;
+                        }
+                    } else {
+                        header.classList.add('collapsed');
+                        toggleText.innerText = 'VER MAS DETALLES ▼';
+                        while (next && !next.querySelector('td[colspan="4"]') && !next.classList.contains('total-row')) {
+                            next.style.display = 'none';
+                            next = next.nextElementSibling;
+                        }
+                    }
+                });
+            });
+
+            // Initial apply
+            applyLimits();
+        });
+    </script>
 </body>
 </html>
