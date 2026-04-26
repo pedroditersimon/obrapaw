@@ -29,7 +29,7 @@
             <div class="container hero-content">
                 
                 <h2 class="hero-slogan">Cobertura que acompaña en cada huella</h2>
-                <p class="hero-subtitle">La obra social para mascotas que más te conviene.</p>
+                <p class="hero-subtitle">La prepaga para mascotas que más te conviene.</p>
                 <div class="hero-btns">
                     <a href="#precios" class="btn btn-accent">Ver Planes</a>
                     <a href="#nosotros" class="btn btn-outline">Más Información</a>
@@ -60,7 +60,7 @@
                             <span class="icon">🏥</span> Servicios Veterinarios
                         </label>
                         <div class="acc-content">
-                            <p>Cobertura integral en consultas clínicas, de urgencia, cirugías e internaciones todas las veces que tu mascota lo necesite.</p>
+                            <p>Cobertura integral en consultas clínicas, de urgencia, cirugías, internaciones, eutanasia y crematorio todas las veces que tu mascota lo necesite.</p>
                         </div>
                     </div>
 
@@ -82,7 +82,7 @@
                             <span class="icon">✨</span> Bienestar
                         </label>
                         <div class="acc-content">
-                            <p>Servicios de peluquería, baño, limpieza dental y consultas con nutricionistas especializados sin límite en cada visita.</p>
+                            <p>Servicios de peluquería, baño, limpieza dental, guardería y consultas con nutricionistas especializados sin límite en cada visita.</p>
                         </div>
                     </div>
 
@@ -115,7 +115,7 @@
                             <span class="icon">🚐</span> Traslado
                         </label>
                         <div class="acc-content">
-                            <p>Transporte especializado totalmente bonificado. El traslado es 100% gratis todas las veces que sea necesario para la salud de tu mascota.</p>
+                            <p>Transporte especializado todas las veces que sea necesario para la salud de tu mascota.</p>
                         </div>
                     </div>
 
@@ -139,122 +139,108 @@
                 <p class="section-subtitle">Armá el plan que se adapte a tus necesidades y a tu presupuesto</p>
                 
                 <form id="pricing-form" class="pricing-table-container">
-                    <!-- Hidden selectors for CSS logic -->
-                    <input type="checkbox" id="calc-vet" checked class="hidden-calc-check">
-                    <input type="checkbox" id="calc-med" checked class="hidden-calc-check">
-                    <input type="checkbox" id="calc-ben" checked class="hidden-calc-check">
-                    <input type="checkbox" id="calc-ali" checked class="hidden-calc-check">
-                    <input type="checkbox" id="calc-alt" checked class="hidden-calc-check">
-                    <input type="checkbox" id="calc-tra" checked class="hidden-calc-check">
-
-
                     <table class="pricing-table">
                         <thead>
                             <tr>
                                 <th>Servicios</th>
-                                <th>Básico<span class="plan-subtitle">Elegí hasta 4 servicios</span></th>
-                                <th>Medio<span class="plan-subtitle">Elegí hasta 6 servicios</span></th>
-                                <th>Premium<span class="plan-subtitle">Podés elegir todos</span></th>
+                                <th>Básico<span class="plan-subtitle">Te reintegramos 35%</span></th>
+                                <th>Medio<span class="plan-subtitle">Te reintegramos 60%</span></th>
+                                <th>Premium<span class="plan-subtitle">Te reintegramos 85%</span></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="service-info">
-                                    <label class="check-label" for="calc-vet">
-                                        <div class="custom-check"></div>
+                                <td class="service-info" style="vertical-align: top;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:5px;">
+                                        <input type="checkbox" class="category-cb" style="margin-right:8px;">
                                         <strong>Servicios Veterinarios</strong>
                                     </label>
+                                    <br><span style="padding-left:30px; font-size:0.85rem; color:#6b7280; display:inline-block; margin-bottom:5px;">Todas las veces que tu mascota lo necesite</span>
+                                    <div style="padding-left:30px; font-size:0.8rem; color:#9ca3af;">Incluye: Consulta clínica, Consulta de urgencia, Internación 24 hs, Cirugía básica, Cesárea, Castración, Radiografía simple, Ecografía, Análisis de sangre, Eutanasia y Crematorio.</div>
                                 </td>
-                                <td>$99.999</td>
-                                <td>$99.999</td>
-                                <td>$99.999</td>
+                                <td><span class="row-val-basico" style="color:var(--primary); font-weight:bold;">✓</span></td>
+                                <td><span class="row-val-medio" style="color:var(--primary); font-weight:bold;">✓</span></td>
+                                <td><span class="row-val-premium" style="color:var(--primary); font-weight:bold;">✓</span></td>
                             </tr>
                             <tr>
-                                <td class="service-info">
-                                    <label class="check-label" for="calc-med">
-                                        <div class="custom-check"></div>
+                                <td class="service-info" style="vertical-align: top;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:5px;">
+                                        <input type="checkbox" class="category-cb" style="margin-right:8px;">
                                         <strong>Medicamentos</strong>
                                     </label>
+                                    <br><span style="padding-left:30px; font-size:0.85rem; color:#6b7280; display:inline-block; margin-bottom:5px;">Todas las veces que tu mascota lo necesite</span>
+                                    <div style="padding-left:30px; font-size:0.8rem; color:#9ca3af;">Incluye: Medicación en general, Vacuna antirrábica, Vacuna séxtuple / quíntuple, Triple felina y Desparasitación.</div>
                                 </td>
-                                <td>$99.999</td>
-                                <td>$99.999</td>
-                                <td>$99.999</td>
+                                <td><span class="row-val-basico" style="color:var(--primary); font-weight:bold;">✓</span></td>
+                                <td><span class="row-val-medio" style="color:var(--primary); font-weight:bold;">✓</span></td>
+                                <td><span class="row-val-premium" style="color:var(--primary); font-weight:bold;">✓</span></td>
                             </tr>
                             <tr>
-                                <td class="service-info">
-                                    <label class="check-label" for="calc-ben">
-                                        <div class="custom-check"></div>
+                                <td class="service-info" style="vertical-align: top;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:5px;">
+                                        <input type="checkbox" class="category-cb" style="margin-right:8px;">
                                         <strong>Bienestar</strong>
                                     </label>
+                                    <br><span style="padding-left:30px; font-size:0.85rem; color:#6b7280; display:inline-block; margin-bottom:5px;">1 vez por mes en cada servicio</span>
+                                    <div style="padding-left:30px; font-size:0.8rem; color:#9ca3af;">Incluye: Baño, Corte de uñas, Limpieza dental, Peluquería, Nutricionista y Guardería.</div>
                                 </td>
-                                <td>$99.999</td>
-                                <td>$99.999</td>
-                                <td>$99.999</td>
+                                <td><span class="row-val-basico" style="color:var(--primary); font-weight:bold;">✓</span></td>
+                                <td><span class="row-val-medio" style="color:var(--primary); font-weight:bold;">✓</span></td>
+                                <td><span class="row-val-premium" style="color:var(--primary); font-weight:bold;">✓</span></td>
                             </tr>
                             <tr>
-                                <td class="service-info">
-                                    <label class="check-label" for="calc-ali">
-                                        <div class="custom-check"></div>
-                                        <strong>Alimentos</strong>
-                                    </label>
-                                    <span>(Tope $10k/mes)</span>
-                                </td>
-                                <td>$99.999</td>
-                                <td>$99.999</td>
-                                <td>$99.999</td>
-                            </tr>
-                            <tr>
-                                <td class="service-info">
-                                    <label class="check-label" for="calc-alt">
-                                        <div class="custom-check"></div>
+                                <td class="service-info" style="vertical-align: top;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:5px;">
+                                        <input type="checkbox" class="category-cb" style="margin-right:8px;">
                                         <strong>Terapias Alternativas</strong>
                                     </label>
-                                    <span>(20 v/año)</span>
+                                    <br><span style="padding-left:30px; font-size:0.85rem; color:#6b7280; display:inline-block; margin-bottom:5px;">Hasta 10 veces al año en cada servicio</span>
+                                    <div style="padding-left:30px; font-size:0.8rem; color:#9ca3af;">Incluye: Fisioterapias, rehabilitación y Homeopatía.</div>
                                 </td>
-                                <td>$99.999</td>
-                                <td>$99.999</td>
-                                <td>$99.999</td>
+                                <td><span class="row-val-basico" style="color:var(--primary); font-weight:bold;">✓</span></td>
+                                <td><span class="row-val-medio" style="color:var(--primary); font-weight:bold;">✓</span></td>
+                                <td><span class="row-val-premium" style="color:var(--primary); font-weight:bold;">✓</span></td>
                             </tr>
                             <tr>
-                                <td class="service-info">
-                                    <label class="check-label" for="calc-tra">
-                                        <div class="custom-check"></div>
+                                <td class="service-info" style="vertical-align: top;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:5px;">
+                                        <input type="checkbox" class="category-cb" style="margin-right:8px;">
+                                        <strong>Alimentos</strong>
+                                    </label>
+                                    <br><span style="padding-left:30px; font-size:0.85rem; color:#6b7280; display:inline-block; margin-bottom:5px;">Tope $10k/mes</span>
+                                    <div style="padding-left:30px; font-size:0.8rem; color:#9ca3af;">Incluye: Alimento seco, alimentos húmedos y dieta Barf.</div>
+                                </td>
+                                <td><span class="row-val-basico" style="color:var(--primary); font-weight:bold;">✓</span></td>
+                                <td><span class="row-val-medio" style="color:var(--primary); font-weight:bold;">✓</span></td>
+                                <td><span class="row-val-premium" style="color:var(--primary); font-weight:bold;">✓</span></td>
+                            </tr>
+                            <tr>
+                                <td class="service-info" style="vertical-align: top;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:5px;">
+                                        <input type="checkbox" class="category-cb" style="margin-right:8px;">
                                         <strong>Traslado</strong>
                                     </label>
-                                    <span>(GRATIS Ilimitado)</span>
+                                    <br><span style="padding-left:30px; font-size:0.85rem; color:#6b7280;">Hasta 10 veces por mes</span>
                                 </td>
-                                <td>$99.999</td>
-                                <td>$99.999</td>
-                                <td>$99.999</td>
+                                <td><span class="row-val-basico" style="color:var(--primary); font-weight:bold;">✓</span></td>
+                                <td><span class="row-val-medio" style="color:var(--primary); font-weight:bold;">✓</span></td>
+                                <td><span class="row-val-premium" style="color:var(--primary); font-weight:bold;">✓</span></td>
                             </tr>
                             <tr>
-                                <td class="service-info">
-                                    <div class="no-check-info">
+                                <td class="service-info" style="vertical-align: top;">
+                                    <label class="check-label" style="font-weight:normal; font-size:14px; cursor:pointer; margin-bottom:5px;">
+                                        <input type="checkbox" class="category-cb" style="margin-right:8px;">
                                         <strong>Collar Con GPS</strong>
-                                    </div>
+                                    </label>
+                                    <br><span style="padding-left:30px; font-size:0.85rem; color:#6b7280; display:inline-block; margin-bottom:5px;">Dispositivo de seguimiento</span>
+                                    <div style="padding-left:30px; font-size:0.8rem; color:#9ca3af;">Se entrega dispositivo sin costo.</div>
                                 </td>
-                                <td class="not-included">—</td>
-                                <td class="not-included">—</td>
-                                <td class="highlight-free">GRATIS</td>
+                                <td><span class="row-val-basico" style="color:var(--primary); font-weight:bold;">✓</span></td>
+                                <td><span class="row-val-medio" style="color:var(--primary); font-weight:bold;">✓</span></td>
+                                <td><span class="row-val-premium" style="color:var(--primary); font-weight:bold;">✓</span></td>
                             </tr>
                         </tbody>
-                        <tfoot>
-                            <tr class="total-row">
-                                <td>TOTAL <span class="discount-label-text"></span></td>
-                                <td class="total-cell basico"><span class="val-basico"></span></td>
-                                <td class="total-cell medio"><span class="val-medio"></span></td>
-                                <td class="total-cell premium"><span class="val-premium"></span></td>
-                            </tr>
-                        </tfoot>
                     </table>
-
-                    <div class="discount-promo-block">
-                        <div class="promo-text">
-                            <h3>¡Ahorra un 15% en tu cobertura!</h3>
-                            <p>Seleccionando todos los ítems obtienes un descuento exclusivo de contratación total.</p>
-                        </div>
-                        <button type="reset" class="btn btn-promo">APLICAR DESCUENTO</button>
-                    </div>
                 </form>
             </div>
         </section>

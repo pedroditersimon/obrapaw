@@ -317,7 +317,6 @@ input[name="service-accordion"]:checked ~ .acc-content {
     border-radius: 30px;
     box-shadow: var(--shadow-lg);
     border: 1px solid #eee;
-    counter-reset: totalB 0 discB 0 totalM 0 discM 0 totalP 0 discP 0;
 }
 
 .hidden-calc-check {
@@ -523,6 +522,7 @@ input[name="service-accordion"]:checked ~ .acc-content {
 .pricing-table th, .pricing-table td {
     padding: 20px 25px;
     border-bottom: 1px solid #eee;
+    vertical-align: top;
 }
 
 .pricing-table thead th {
@@ -687,4 +687,36 @@ input[name="service-accordion"]:checked ~ .acc-content {
     .pricing-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Detalles de Servicios Desplegables */
+.service-details {
+    margin-top: 10px;
+    padding-left: 35px;
+}
+
+.service-details summary {
+    font-size: 0.9rem;
+    color: var(--accent);
+    cursor: pointer;
+    font-weight: 600;
+    outline: none;
+    user-select: none;
+    transition: var(--transition);
+}
+
+.service-details summary:hover {
+    color: var(--primary);
+}
+
+.service-details ul {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    list-style-type: disc;
+    padding-left: 18px;
+}
+
+.service-details li {
+    margin-bottom: 4px;
 }
