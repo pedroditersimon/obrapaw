@@ -28,7 +28,10 @@
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#precios">Precios</a></li>
-                <li><a href="#contacto" class="btn btn-accent">Unirme ahora</a></li>
+                <li><a href="#" class="btn btn-outline" id="main-cart-toggle-btn" style="position: relative; display: flex; align-items: center; gap: 6px; border-radius: 50px; font-weight:800; padding: 6px 14px; margin-right: 10px;">
+                    🛒 <span id="main-cart-count-badge" style="background-color: var(--accent); color: var(--text-dark); padding: 2px 8px; border-radius: 20px; font-size: 0.75rem; font-weight:800;">0</span>
+                </a></li>
+                <li><a href="#" class="btn btn-accent open-portal-btn">Unirme ahora</a></li>
             </ul>
         </nav>
     </header>
@@ -516,7 +519,7 @@
             <div class="container">
                 <h2>¿Listo para cuidar a tu mascota como se merece?</h2>
                 <p>Únete a OBRA PAW y disfruta de la tranquilidad de estar siempre protegido.</p>
-                <a href="#" class="btn btn-accent btn-large">Quiero empezar ahora</a>
+                <a href="#" class="btn btn-accent btn-large open-portal-btn">Quiero empezar ahora</a>
             </div>
         </section>
     </main>
@@ -672,6 +675,1406 @@
 
             // Initial apply
             applyLimits();
+        });
+    </script>
+
+    <!-- ==========================================================================
+         PORTAL DE AFILIADOS & PET SHOP MODAL
+         ========================================================================== -->
+    <div class="portal-backdrop" id="portal-backdrop">
+        <div class="portal-container">
+            <!-- Sidebar -->
+            <aside class="portal-sidebar">
+                <div>
+                    <div class="portal-brand">
+                        <img src="logo.png" alt="Obra Paw Logo">
+                        <span>OBRA PAW</span>
+                    </div>
+                    <nav class="portal-nav">
+                        <button class="portal-nav-btn active" data-target="section-join">
+                            <span>📝</span> Unirme / Registro
+                        </button>
+                        <button class="portal-nav-btn" data-target="section-profile" id="nav-btn-profile">
+                            <span>👤</span> Mi Perfil
+                        </button>
+                        <button class="portal-nav-btn" data-target="section-history" id="nav-btn-history">
+                            <span>🩺</span> Historia Clínica
+                        </button>
+                        <button class="portal-nav-btn" data-target="section-shop">
+                            <span>🛒</span> Pet Shop
+                        </button>
+                    </nav>
+                </div>
+                <div class="portal-sidebar-footer">
+                    <div class="portal-status-card" id="portal-status-card">
+                        <div class="portal-status-dot"></div>
+                        <span id="portal-status-text">Sin Afiliar</span>
+                    </div>
+                    <button class="portal-close-btn" id="portal-close-btn">
+                        <span>✖</span> Cerrar Portal
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="portal-content">
+                <!-- 1. JOIN FORM SECTION -->
+                <section class="portal-section active" id="section-join">
+                    <div class="portal-section-header">
+                        <h2>📝 Formulario de Afiliación</h2>
+                        <p class="subtitle">Completa tus datos y los de tu mascota para unirte a OBRA PAW</p>
+                    </div>
+                    <form id="join-form" class="profile-scrollable">
+                        <!-- Affiliated info -->
+                        <h3 style="margin-bottom:15px; color:var(--primary); font-size:1.15rem; font-weight:800;">Datos del Afiliado</h3>
+                        <div class="portal-form-grid">
+                            <div class="portal-form-group">
+                                <label for="join-name">Nombre Completo *</label>
+                                <input type="text" id="join-name" class="portal-input" placeholder="Ej. Juan Pérez" required>
+                            </div>
+                            <div class="portal-form-group">
+                                <label for="join-email">Correo Electrónico *</label>
+                                <input type="email" id="join-email" class="portal-input" placeholder="ejemplo@correo.com" required>
+                            </div>
+                            <div class="portal-form-group">
+                                <label for="join-phone">Número de Teléfono *</label>
+                                <input type="tel" id="join-phone" class="portal-input" placeholder="Ej. 376-502-1819" required>
+                            </div>
+                            <div class="portal-form-group">
+                                <label for="join-address">Dirección de Residencia *</label>
+                                <input type="text" id="join-address" class="portal-input" placeholder="Ej. Av. Francisco de Haro 5253" required>
+                            </div>
+                        </div>
+
+                        <!-- Pet info -->
+                        <h3 style="margin-bottom:15px; color:var(--primary); font-size:1.15rem; font-weight:800; margin-top:10px;">Datos de la Mascota</h3>
+                        <div class="portal-form-grid">
+                            <div class="portal-form-group">
+                                <label for="join-pet-name">Nombre de la Mascota *</label>
+                                <input type="text" id="join-pet-name" class="portal-input" placeholder="Ej. Firulais" required>
+                            </div>
+                            <div class="portal-form-group">
+                                <label>Tipo de Mascota *</label>
+                                <div class="choice-cards">
+                                    <label class="choice-card selected" id="choice-dog">
+                                        <input type="radio" name="pet-type" value="perro" checked>
+                                        <span class="icon">🐶</span>
+                                        <span>Perro</span>
+                                    </label>
+                                    <label class="choice-card" id="choice-cat">
+                                        <input type="radio" name="pet-type" value="gato">
+                                        <span class="icon">🐱</span>
+                                        <span>Gato</span>
+                                    </label>
+                                    <label class="choice-card" id="choice-other">
+                                        <input type="radio" name="pet-type" value="otra">
+                                        <span class="icon">🐾</span>
+                                        <span>Otra</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="portal-form-group">
+                                <label for="join-pet-age">Edad de la Mascota (años) *</label>
+                                <input type="number" id="join-pet-age" class="portal-input" min="0" max="30" placeholder="Ej. 3" required>
+                            </div>
+                            <div class="portal-form-group">
+                                <label for="join-pet-weight">Peso de la Mascota (kg) *</label>
+                                <input type="number" id="join-pet-weight" class="portal-input" min="0" step="0.1" placeholder="Ej. 12.5" required>
+                            </div>
+                            <div class="portal-form-group">
+                                <label for="join-pet-food">Tipo de Alimentación *</label>
+                                <select id="join-pet-food" class="portal-select" required>
+                                    <option value="" disabled selected>Seleccione una opción</option>
+                                    <option value="Seco">Alimento Seco (Balanceado)</option>
+                                    <option value="Húmedo">Alimento Húmedo (Latas/Sobres)</option>
+                                    <option value="BARF">Dieta BARF / Natural</option>
+                                    <option value="Mixto">Alimentación Mixta</option>
+                                </select>
+                            </div>
+                            <div class="portal-form-group">
+                                <label>Tipo de Vivienda *</label>
+                                <div class="choice-cards">
+                                    <label class="choice-card selected" id="choice-house">
+                                        <input type="radio" name="housing-type" value="casa" checked>
+                                        <span class="icon">🏡</span>
+                                        <span>Casa</span>
+                                    </label>
+                                    <label class="choice-card" id="choice-apartment">
+                                        <input type="radio" name="housing-type" value="departamento">
+                                        <span class="icon">🏢</span>
+                                        <span>Departamento</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="portal-form-group full-width">
+                                <label>Condiciones de Salud (si tiene alguna)</label>
+                                <textarea id="join-pet-health" class="portal-textarea" rows="2" placeholder="Describa alergias, enfermedades crónicas, etc. (Dejar en blanco si no tiene)"></textarea>
+                            </div>
+                            <div class="portal-form-group full-width">
+                                <div class="switch-container">
+                                    <label class="switch-label">
+                                        <input type="checkbox" id="join-pet-vaccinated" class="switch-input" checked>
+                                        ¿Está Vacunada? 💉
+                                    </label>
+                                    <label class="switch-label">
+                                        <input type="checkbox" id="join-pet-sterilized" class="switch-input">
+                                        ¿Está Esterilizada? ✂
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-accent" style="border:none; padding:12px 30px;">Completar Registro</button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- 2. PROFILE SECTION -->
+                <section class="portal-section" id="section-profile">
+                    <div class="portal-section-header">
+                        <h2>👤 Perfil del Afiliado</h2>
+                        <p class="subtitle">Gestiona tus datos de contacto y el perfil de tus mascotas afiliadas</p>
+                    </div>
+                    <div class="profile-scrollable">
+                        <div class="profile-info-block" id="affiliate-profile-view">
+                            <!-- Populated by JS -->
+                        </div>
+
+                        <div class="pets-section-title">
+                            <h3>Mis Mascotas</h3>
+                        </div>
+
+                        <div class="pets-grid" id="pets-list-container">
+                            <!-- Populated by JS, plus 'Add Pet' Card -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. CLINICAL HISTORY SECTION -->
+                <section class="portal-section" id="section-history">
+                    <div class="portal-section-header">
+                        <h2>🩺 Historia Clínica</h2>
+                        <p class="subtitle">Visualiza y registra consultas, vacunas y carga estudios de salud de tu mascota</p>
+                    </div>
+                    
+                    <div class="clinical-history-container">
+                        <div class="active-pet-banner">
+                            <div class="active-pet-info">
+                                <div class="active-pet-avatar" id="history-pet-avatar">🐶</div>
+                                <div class="active-pet-details">
+                                    <h4 id="history-pet-name">Firulais</h4>
+                                    <p id="history-pet-subtitle">Perro • 3 años • Plan Básico</p>
+                                </div>
+                            </div>
+                            <div class="active-pet-selector-wrapper">
+                                <label for="history-pet-select">Mascota Activa:</label>
+                                <select id="history-pet-select" class="active-pet-select">
+                                    <!-- Populated by JS -->
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="history-main-layout">
+                            <!-- Timeline view -->
+                            <div class="history-timeline-panel">
+                                <div class="timeline" id="clinical-history-timeline">
+                                    <!-- Populated by JS -->
+                                </div>
+                            </div>
+
+                            <!-- Add Entry Form -->
+                            <div class="history-form-panel">
+                                <h3 style="margin-bottom:15px; color:var(--primary); font-size:1.1rem; font-weight:800;">Registrar Evento Médico</h3>
+                                <form id="add-history-form" style="display:flex; flex-direction:column; gap:12px;">
+                                    <div class="portal-form-group">
+                                        <label for="history-entry-title">Título del Evento *</label>
+                                        <input type="text" id="history-entry-title" class="portal-input" placeholder="Ej. Control Anual / Consulta por Tos" required>
+                                    </div>
+                                    <div class="portal-form-group">
+                                        <label for="history-entry-type">Tipo de Evento *</label>
+                                        <select id="history-entry-type" class="portal-select" required>
+                                            <option value="consulta">🩺 Consulta Médica</option>
+                                            <option value="vacuna">💉 Vacunación</option>
+                                            <option value="estudio">🔬 Estudio de Salud (Análisis, RX, etc.)</option>
+                                        </select>
+                                    </div>
+                                    <div class="portal-form-group">
+                                        <label for="history-entry-date">Fecha *</label>
+                                        <input type="date" id="history-entry-date" class="portal-input" required>
+                                    </div>
+                                    <div class="portal-form-group">
+                                        <label for="history-entry-desc">Detalles / Diagnóstico *</label>
+                                        <textarea id="history-entry-desc" class="portal-textarea" rows="3" placeholder="Escriba los detalles de la consulta, vacunas aplicadas o indicaciones..." required></textarea>
+                                    </div>
+                                    
+                                    <div class="portal-form-group">
+                                        <label>Estudios de Salud (Cargar Documentos)</label>
+                                        <div class="file-upload-zone" id="file-upload-zone">
+                                            <div class="upload-icon">📁</div>
+                                            <span>Subir archivos (PDF o Imagen)</span>
+                                            <p>Arrastra aquí o haz click para buscar</p>
+                                            <input type="file" id="history-entry-files" accept="image/*,application/pdf" multiple>
+                                        </div>
+                                        <div class="selected-files" id="selected-files-container">
+                                            <!-- Files list before saving -->
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-accent" style="border:none; padding:10px; font-size:0.95rem; margin-top:5px;">Guardar Registro</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. PET SHOP SECTION -->
+                <section class="portal-section" id="section-shop">
+                    <div class="portal-section-header">
+                        <h2>🛒 Pet Shop</h2>
+                        <p class="subtitle">Adquiere alimentos, medicamentos y accesorios premium para tu mascota con descuentos Obrapaw</p>
+                    </div>
+
+                    <div class="petshop-container">
+                        <!-- Catalog -->
+                        <div class="shop-catalog" style="flex: 1;">
+                            <div class="products-grid" id="products-grid-container">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- MODAL MASCOTA ADICIONAL (Mini-formulario) -->
+    <div class="portal-backdrop" id="add-pet-modal" style="background-color: rgba(31, 41, 55, 0.7); z-index:2500;">
+        <div class="portal-container" style="max-width: 600px; height: auto; min-height: unset; max-height: 90vh;">
+            <div class="portal-content" style="padding: 30px;">
+                <div class="portal-section-header">
+                    <h2>🐾 Agregar Nueva Mascota</h2>
+                    <p class="subtitle">Ingresa la información de tu nueva mascota para afiliarla</p>
+                </div>
+                <form id="add-pet-form" class="profile-scrollable" style="max-height: 60vh;">
+                    <div class="portal-form-grid" style="grid-template-columns: 1fr;">
+                        <div class="portal-form-group">
+                            <label for="add-pet-name-field">Nombre de la Mascota *</label>
+                            <input type="text" id="add-pet-name-field" class="portal-input" required>
+                        </div>
+                        <div class="portal-form-group">
+                            <label>Tipo de Mascota *</label>
+                            <div class="choice-cards">
+                                <label class="choice-card selected" id="choice-add-dog">
+                                    <input type="radio" name="add-pet-type" value="perro" checked>
+                                    <span class="icon">🐶</span>
+                                    <span>Perro</span>
+                                </label>
+                                <label class="choice-card" id="choice-add-cat">
+                                    <input type="radio" name="add-pet-type" value="gato">
+                                    <span class="icon">🐱</span>
+                                    <span>Gato</span>
+                                </label>
+                                <label class="choice-card" id="choice-add-other">
+                                    <input type="radio" name="add-pet-type" value="otra">
+                                    <span class="icon">🐾</span>
+                                    <span>Otra</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="portal-form-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 0;">
+                            <div class="portal-form-group">
+                                <label for="add-pet-age-field">Edad (años) *</label>
+                                <input type="number" id="add-pet-age-field" class="portal-input" min="0" required>
+                            </div>
+                            <div class="portal-form-group">
+                                <label for="add-pet-weight-field">Peso (kg) *</label>
+                                <input type="number" id="add-pet-weight-field" class="portal-input" min="0" step="0.1" required>
+                            </div>
+                        </div>
+                        <div class="portal-form-group">
+                            <label for="add-pet-food-field">Tipo de Alimentación *</label>
+                            <select id="add-pet-food-field" class="portal-select" required>
+                                <option value="" disabled selected>Seleccione una opción</option>
+                                <option value="Seco">Alimento Seco (Balanceado)</option>
+                                <option value="Húmedo">Alimento Húmedo (Latas/Sobres)</option>
+                                <option value="BARF">Dieta BARF / Natural</option>
+                                <option value="Mixto">Alimentación Mixta</option>
+                            </select>
+                        </div>
+                        <div class="portal-form-group">
+                            <label>Tipo de Vivienda *</label>
+                            <div class="choice-cards">
+                                <label class="choice-card selected" id="choice-add-house">
+                                    <input type="radio" name="add-pet-housing" value="casa" checked>
+                                    <span class="icon">🏡</span>
+                                    <span>Casa</span>
+                                </label>
+                                <label class="choice-card" id="choice-add-apartment">
+                                    <input type="radio" name="add-pet-housing" value="departamento">
+                                    <span class="icon">🏢</span>
+                                    <span>Departamento</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="portal-form-group">
+                            <label>Condiciones de Salud (si tiene alguna)</label>
+                            <textarea id="add-pet-health-field" class="portal-textarea" rows="2" placeholder="Alergias, enfermedades crónicas..."></textarea>
+                        </div>
+                        <div class="portal-form-group">
+                            <div class="switch-container">
+                                <label class="switch-label">
+                                    <input type="checkbox" id="add-pet-vac-field" class="switch-input" checked>
+                                    ¿Está Vacunada? 💉
+                                </label>
+                                <label class="switch-label">
+                                    <input type="checkbox" id="add-pet-ster-field" class="switch-input">
+                                    ¿Está Esterilizada? ✂
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions" style="margin-top: 20px;">
+                        <button type="button" class="btn btn-outline" id="add-pet-cancel-btn" style="padding:10px 20px;">Cancelar</button>
+                        <button type="submit" class="btn btn-accent" style="border:none; padding:10px 20px;">Agregar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX IMAGE PREVIEW -->
+    <div class="preview-backdrop" id="preview-backdrop">
+        <div class="preview-container">
+            <button class="preview-close-btn" id="preview-close-btn">✖</button>
+            <img src="" id="preview-image" alt="Vista previa del estudio">
+            <div class="preview-filename" id="preview-filename">Estudio.jpg</div>
+        </div>
+    </div>
+
+    <!-- SHOPPING CART SIDE DRAWER (GLOBAL) -->
+    <div class="cart-drawer-backdrop" id="cart-drawer-backdrop">
+        <div class="cart-drawer">
+            <div class="cart-drawer-header">
+                <h3>🛒 Mi Carrito</h3>
+                <button class="cart-drawer-close" id="cart-drawer-close-btn">✖</button>
+            </div>
+            <div class="cart-drawer-body">
+                <div class="cart-items" id="main-cart-items-container" style="max-height: unset; flex-grow: 1;">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+            <div class="cart-drawer-footer">
+                <div class="cart-totals">
+                    <div class="cart-total-row">
+                        <span>Subtotal:</span>
+                        <span id="main-cart-subtotal">$0</span>
+                    </div>
+                    <div class="cart-total-row" id="main-cart-discount-row" style="display:none; color:#10b981;">
+                        <span>Descuento Prepaga (-15%):</span>
+                        <span id="main-cart-discount">-$0</span>
+                    </div>
+                    <div class="cart-total-row final">
+                        <span>Total:</span>
+                        <span id="main-cart-total">$0</span>
+                    </div>
+                </div>
+                <button class="checkout-btn" id="main-cart-checkout-btn" disabled>Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHECKOUT SUCCESS POPUP -->
+    <div class="success-popup" id="success-popup">
+        <div class="success-icon">✔</div>
+        <h3 id="success-popup-title">¡Compra Exitosa!</h3>
+        <p id="success-popup-message">Tu pedido en el Pet Shop ha sido procesado. Te enviaremos un correo con los detalles del envío.</p>
+        <button class="success-popup-btn" id="success-popup-close-btn">Entendido</button>
+    </div>
+
+    <!-- PORTAL JAVASCRIPT CONTROLLER -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --------------------------------------------------------------------------
+            // INDEXEDDB SETUP (For medical study documents)
+            // --------------------------------------------------------------------------
+            let db;
+            const DB_NAME = 'ObrapawDB';
+            const DB_VERSION = 1;
+            const STORE_NAME = 'clinical_studies';
+
+            function initDB() {
+                return new Promise((resolve, reject) => {
+                    const request = indexedDB.open(DB_NAME, DB_VERSION);
+                    request.onupgradeneeded = (e) => {
+                        const database = e.target.result;
+                        if (!database.objectStoreNames.contains(STORE_NAME)) {
+                            database.createObjectStore(STORE_NAME, { keyPath: 'id', autoIncrement: true });
+                        }
+                    };
+                    request.onsuccess = (e) => {
+                        db = e.target.result;
+                        resolve(db);
+                    };
+                    request.onerror = (e) => {
+                        console.error('IndexedDB error:', e.target.error);
+                        reject(e.target.error);
+                    };
+                });
+            }
+
+            function saveStudyFile(fileData) {
+                return new Promise((resolve, reject) => {
+                    const transaction = db.transaction([STORE_NAME], 'readwrite');
+                    const store = transaction.objectStore(STORE_NAME);
+                    const request = store.add(fileData);
+                    request.onsuccess = () => resolve(request.result);
+                    request.onerror = (e) => reject(e.target.error);
+                });
+            }
+
+            function getStudiesByEvent(eventId) {
+                return new Promise((resolve, reject) => {
+                    const transaction = db.transaction([STORE_NAME], 'readonly');
+                    const store = transaction.objectStore(STORE_NAME);
+                    const request = store.getAll();
+                    request.onsuccess = () => {
+                        const all = request.result;
+                        const filtered = all.filter(item => item.eventId === eventId);
+                        resolve(filtered);
+                    };
+                    request.onerror = (e) => reject(e.target.error);
+                });
+            }
+
+            // Initialize DB
+            initDB().catch(err => console.error("Could not initialize IndexedDB", err));
+
+            // --------------------------------------------------------------------------
+            // PRODUCTS CATALOG DEFINITION
+            // --------------------------------------------------------------------------
+            const PRODUCTS = [
+                { id: 1, title: 'Alimento Súper Premium Perro (15kg)', price: 45000, category: 'Alimentación', icon: '🦴', desc: 'Nutrición óptima con altos niveles de proteína para perros de todos los tamaños.' },
+                { id: 2, title: 'Alimento Premium Gato (7.5kg)', price: 28000, category: 'Alimentación', icon: '🐈', desc: 'Fórmula especial para el cuidado del tracto urinario y control de bolas de pelo.' },
+                { id: 3, title: 'Collar GPS Inteligente Obrapaw', price: 15000, category: 'Tecnología', icon: '🧭', desc: 'Rastreo en tiempo real mediante app para que nunca pierdas de vista a tu mascota.' },
+                { id: 4, title: 'Pipeta Antiparasitaria Multipack', price: 5500, category: 'Salud', icon: '🏥', desc: 'Protección mensual contra pulgas, garrapatas y mosquitos. Apto perros y gatos.' },
+                { id: 5, title: 'Juguete Mordillo Texturado', price: 3200, category: 'Juguetes', icon: '🎾', desc: 'Ideal para la salud dental de tu mascota y para liberar estrés mordiendo.' },
+                { id: 6, title: 'Shampoo Hipoalergénico Mascotas', price: 4800, category: 'Higiene', icon: '🧼', desc: 'Limpieza profunda sin irritaciones. Especial para pieles sensibles.' }
+            ];
+
+            // --------------------------------------------------------------------------
+            // PORTAL STATE & STORAGE
+            // --------------------------------------------------------------------------
+            let affiliateData = JSON.parse(localStorage.getItem('obrapaw_affiliate')) || null;
+            let pets = JSON.parse(localStorage.getItem('obrapaw_pets')) || [];
+            let medicalHistory = JSON.parse(localStorage.getItem('obrapaw_history')) || [];
+            let activePetId = localStorage.getItem('obrapaw_active_pet_id') || (pets[0] ? pets[0].id : null);
+            
+            let tempUploadedFiles = []; // Holds base64 files before saving an entry
+            let cart = JSON.parse(localStorage.getItem('obrapaw_cart')) || [];
+
+            // DOM Elements
+            const portalBackdrop = document.getElementById('portal-backdrop');
+            const portalCloseBtn = document.getElementById('portal-close-btn');
+            const openPortalBtns = document.querySelectorAll('.open-portal-btn');
+            const portalNavBtns = document.querySelectorAll('.portal-nav-btn');
+            const portalSections = document.querySelectorAll('.portal-section');
+            
+            const portalStatusCard = document.getElementById('portal-status-card');
+            const portalStatusText = document.getElementById('portal-status-text');
+
+            // Choice Cards Handler Helper (Join tab)
+            function setupChoiceCards(containerId) {
+                const labels = document.querySelectorAll(`#${containerId} .choice-card`);
+                labels.forEach(label => {
+                    label.addEventListener('click', () => {
+                        labels.forEach(l => l.classList.remove('selected'));
+                        label.classList.add('selected');
+                        const radio = label.querySelector('input[type="radio"]');
+                        if (radio) radio.checked = true;
+                    });
+                });
+            }
+
+            setupChoiceCards('section-join');
+            
+            // Switch active state choice cards in mini-modal as well
+            const miniDogCard = document.getElementById('choice-add-dog');
+            const miniCatCard = document.getElementById('choice-add-cat');
+            const miniOtherCard = document.getElementById('choice-add-other');
+            if (miniDogCard && miniCatCard && miniOtherCard) {
+                [miniDogCard, miniCatCard, miniOtherCard].forEach(card => {
+                    card.addEventListener('click', () => {
+                        miniDogCard.classList.remove('selected');
+                        miniCatCard.classList.remove('selected');
+                        miniOtherCard.classList.remove('selected');
+                        card.classList.add('selected');
+                        card.querySelector('input').checked = true;
+                    });
+                });
+            }
+
+            const miniHouseCard = document.getElementById('choice-add-house');
+            const miniApartmentCard = document.getElementById('choice-add-apartment');
+            if (miniHouseCard && miniApartmentCard) {
+                [miniHouseCard, miniApartmentCard].forEach(card => {
+                    card.addEventListener('click', () => {
+                        miniHouseCard.classList.remove('selected');
+                        miniApartmentCard.classList.remove('selected');
+                        card.classList.add('selected');
+                        card.querySelector('input').checked = true;
+                    });
+                });
+            }
+
+            // --------------------------------------------------------------------------
+            // PORTAL VISIBILITY & NAVIGATION
+            // --------------------------------------------------------------------------
+            function openPortal() {
+                portalBackdrop.classList.add('show');
+                document.body.style.overflow = 'hidden'; // Lock background scroll
+                updateStatusIndicator();
+                
+                // If already affiliated, switch tab to Profile by default
+                if (affiliateData) {
+                    switchTab('section-profile');
+                } else {
+                    switchTab('section-join');
+                }
+                
+                renderPetShop();
+                updateCartUI();
+            }
+
+            function closePortal() {
+                portalBackdrop.classList.remove('show');
+                document.body.style.overflow = ''; // Restore scroll
+            }
+
+            function switchTab(sectionId) {
+                portalNavBtns.forEach(btn => {
+                    if (btn.getAttribute('data-target') === sectionId) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+
+                portalSections.forEach(section => {
+                    if (section.id === sectionId) {
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+
+                // Trigger updates depending on section
+                if (sectionId === 'section-profile') {
+                    renderProfile();
+                } else if (sectionId === 'section-history') {
+                    renderHistorySection();
+                } else if (sectionId === 'section-shop') {
+                    renderPetShop();
+                }
+            }
+
+            // Attach triggers
+            openPortalBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openPortal();
+                });
+            });
+
+            portalCloseBtn.addEventListener('click', closePortal);
+
+            portalBackdrop.addEventListener('click', (e) => {
+                if (e.target === portalBackdrop) {
+                    closePortal();
+                }
+            });
+
+            portalNavBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const target = btn.getAttribute('data-target');
+                    
+                    // Do not allow viewing profile or history if not affiliated
+                    if ((target === 'section-profile' || target === 'section-history') && !affiliateData) {
+                        alert("Por favor, completa el formulario de afiliación primero para ver tu perfil o historia clínica.");
+                        return;
+                    }
+                    switchTab(target);
+                });
+            });
+
+            function updateStatusIndicator() {
+                if (affiliateData) {
+                    portalStatusCard.classList.add('affiliated');
+                    portalStatusText.textContent = "Afiliado Activo";
+                } else {
+                    portalStatusCard.classList.remove('affiliated');
+                    portalStatusText.textContent = "Sin Afiliar";
+                }
+            }
+
+            // --------------------------------------------------------------------------
+            // AFFILIATION / REGISTER FORM
+            // --------------------------------------------------------------------------
+            const joinForm = document.getElementById('join-form');
+            joinForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                // Collect affiliate info
+                const name = document.getElementById('join-name').value;
+                const email = document.getElementById('join-email').value;
+                const phone = document.getElementById('join-phone').value;
+                const address = document.getElementById('join-address').value;
+
+                affiliateData = { name, email, phone, address };
+                localStorage.setItem('obrapaw_affiliate', JSON.stringify(affiliateData));
+
+                // Collect pet info
+                const petName = document.getElementById('join-pet-name').value;
+                const petType = document.querySelector('input[name="pet-type"]:checked').value;
+                const petAge = parseInt(document.getElementById('join-pet-age').value);
+                const petWeight = parseFloat(document.getElementById('join-pet-weight').value);
+                const petFood = document.getElementById('join-pet-food').value;
+                const petHousing = document.querySelector('input[name="housing-type"]:checked').value;
+                const petHealth = document.getElementById('join-pet-health').value;
+                const petVaccinated = document.getElementById('join-pet-vaccinated').checked;
+                const petSterilized = document.getElementById('join-pet-sterilized').checked;
+                
+                // Match a plan
+                const selectedPlanRadio = document.querySelector('input[name="selected-plan"]:checked');
+                const planName = selectedPlanRadio ? selectedPlanRadio.value.toUpperCase() : "BÁSICO";
+
+                const newPet = {
+                    id: 'pet_' + Date.now(),
+                    name: petName,
+                    type: petType,
+                    age: petAge,
+                    weight: petWeight,
+                    food: petFood,
+                    housing: petHousing,
+                    health: petHealth || "Ninguna",
+                    vaccinated: petVaccinated,
+                    sterilized: petSterilized,
+                    plan: planName
+                };
+
+                pets = [newPet];
+                localStorage.setItem('obrapaw_pets', JSON.stringify(pets));
+                activePetId = newPet.id;
+                localStorage.setItem('obrapaw_active_pet_id', activePetId);
+
+                // Add an initial clinical history entry
+                const initEntry = {
+                    id: 'entry_' + Date.now(),
+                    petId: newPet.id,
+                    title: 'Afiliación al Plan ' + planName,
+                    type: 'consulta',
+                    date: new Date().toISOString().split('T')[0],
+                    desc: `Ingreso al sistema de OBRA PAW. Mascota de tipo ${petType}, vivienda en ${petHousing}, alimentación basada en ${petFood}. Vacunación inicial cargada.`
+                };
+                medicalHistory = [initEntry];
+                localStorage.setItem('obrapaw_history', JSON.stringify(medicalHistory));
+
+                updateStatusIndicator();
+                alert("¡Felicidades! Te has afiliado correctamente a OBRA PAW. Ya puedes ver tu perfil y gestionar la historia clínica de tus mascotas.");
+                
+                joinForm.reset();
+                switchTab('section-profile');
+            });
+
+            // --------------------------------------------------------------------------
+            // AFFILIATE PROFILE & PET MANAGEMENT
+            // --------------------------------------------------------------------------
+            const affiliateProfileView = document.getElementById('affiliate-profile-view');
+            const petsListContainer = document.getElementById('pets-list-container');
+
+            function renderProfile() {
+                if (!affiliateData) return;
+
+                // Render Affiliate info
+                affiliateProfileView.innerHTML = `
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+                        <h3 style="margin:0; font-size:1.3rem; font-weight:800; color:var(--primary);">Titular de la Cuenta</h3>
+                        <button class="btn btn-outline" id="edit-profile-btn" style="padding:6px 14px; font-size:0.8rem; border-width:1px;">Editar Datos</button>
+                    </div>
+                    <div class="profile-info-grid" id="affiliate-details-static">
+                        <div class="info-item">
+                            <span class="label">Nombre Completo</span>
+                            <span class="value">${affiliateData.name}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Correo Electrónico</span>
+                            <span class="value">${affiliateData.email}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Teléfono</span>
+                            <span class="value">${affiliateData.phone}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Dirección</span>
+                            <span class="value">${affiliateData.address}</span>
+                        </div>
+                    </div>
+                    <form id="edit-profile-form" style="display:none; flex-direction:column; gap:15px;">
+                        <div class="portal-form-grid" style="margin-bottom:10px;">
+                            <div class="portal-form-group">
+                                <label for="edit-name">Nombre Completo</label>
+                                <input type="text" id="edit-name" class="portal-input" value="${affiliateData.name}" required>
+                            </div>
+                            <div class="portal-form-group">
+                                <label for="edit-email">Correo Electrónico</label>
+                                <input type="email" id="edit-email" class="portal-input" value="${affiliateData.email}" required>
+                            </div>
+                            <div class="portal-form-group">
+                                <label for="edit-phone">Teléfono</label>
+                                <input type="tel" id="edit-phone" class="portal-input" value="${affiliateData.phone}" required>
+                            </div>
+                            <div class="portal-form-group">
+                                <label for="edit-address">Dirección</label>
+                                <input type="text" id="edit-address" class="portal-input" value="${affiliateData.address}" required>
+                            </div>
+                        </div>
+                        <div class="form-actions" style="margin-top:0;">
+                            <button type="button" class="btn btn-outline" id="edit-cancel-btn" style="padding:8px 16px; font-size:0.85rem;">Cancelar</button>
+                            <button type="submit" class="btn btn-accent" style="border:none; padding:8px 16px; font-size:0.85rem;">Guardar Cambios</button>
+                        </div>
+                    </form>
+                `;
+
+                // Edit Profile Handlers
+                const editProfileBtn = document.getElementById('edit-profile-btn');
+                const editProfileForm = document.getElementById('edit-profile-form');
+                const affiliateDetailsStatic = document.getElementById('affiliate-details-static');
+                const editCancelBtn = document.getElementById('edit-cancel-btn');
+
+                editProfileBtn.addEventListener('click', () => {
+                    affiliateDetailsStatic.style.display = 'none';
+                    editProfileBtn.style.display = 'none';
+                    editProfileForm.style.display = 'flex';
+                });
+
+                editCancelBtn.addEventListener('click', () => {
+                    editProfileForm.style.display = 'none';
+                    affiliateDetailsStatic.style.display = 'grid';
+                    editProfileBtn.style.display = 'block';
+                });
+
+                editProfileForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    affiliateData.name = document.getElementById('edit-name').value;
+                    affiliateData.email = document.getElementById('edit-email').value;
+                    affiliateData.phone = document.getElementById('edit-phone').value;
+                    affiliateData.address = document.getElementById('edit-address').value;
+                    
+                    localStorage.setItem('obrapaw_affiliate', JSON.stringify(affiliateData));
+                    renderProfile();
+                    alert("Perfil de afiliado actualizado correctamente.");
+                });
+
+                // Render Pets Grid
+                petsListContainer.innerHTML = '';
+                
+                pets.forEach(pet => {
+                    const petAvatar = pet.type === 'gato' ? '🐱' : (pet.type === 'perro' ? '🐶' : '🐾');
+                    const petCard = document.createElement('div');
+                    petCard.className = 'pet-card';
+                    petCard.innerHTML = `
+                        <div class="pet-card-header">
+                            <div class="pet-card-avatar">${petAvatar}</div>
+                            <div class="pet-card-title">
+                                <h3>${pet.name}</h3>
+                                <span class="pet-card-badge">Plan ${pet.plan}</span>
+                            </div>
+                        </div>
+                        <div class="pet-card-body">
+                            <div class="info-item">
+                                <span class="label">Edad</span>
+                                <span class="value">${pet.age} ${pet.age === 1 ? 'año' : 'años'}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Peso</span>
+                                <span class="value">${pet.weight} kg</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Vivienda</span>
+                                <span class="value" style="text-transform: capitalize;">${pet.housing}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Alimentación</span>
+                                <span class="value">${pet.food}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Vacunada</span>
+                                <span class="value"><span class="badge-pill ${pet.vaccinated ? 'success' : 'danger'}">${pet.vaccinated ? 'SÍ 💉' : 'NO'}</span></span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Esterilizada</span>
+                                <span class="value"><span class="badge-pill ${pet.sterilized ? 'success' : 'danger'}">${pet.sterilized ? 'SÍ ✂' : 'NO'}</span></span>
+                            </div>
+                            <div class="info-item" style="grid-column: 1 / -1;">
+                                <span class="label">Condiciones de Salud</span>
+                                <span class="value" style="font-weight: 500; font-size: 0.85rem; max-height:40px; overflow-y:auto; line-height:1.3;">${pet.health}</span>
+                            </div>
+                        </div>
+                        <div class="pet-card-actions">
+                            <button class="pet-card-btn btn-secondary select-pet-btn" data-id="${pet.id}">Historial Clínico</button>
+                        </div>
+                    `;
+                    petsListContainer.appendChild(petCard);
+                });
+
+                // Add Pet Card
+                const addPetCard = document.createElement('div');
+                addPetCard.className = 'add-pet-card';
+                addPetCard.innerHTML = `
+                    <div class="plus-icon">➕</div>
+                    <span>Afiliar Otra Mascota</span>
+                    <p>Suma otra mascota a tu cobertura médica</p>
+                `;
+                petsListContainer.appendChild(addPetCard);
+
+                addPetCard.addEventListener('click', () => {
+                    document.getElementById('add-pet-modal').classList.add('show');
+                });
+
+                // Attach listeners
+                document.querySelectorAll('.select-pet-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const id = btn.getAttribute('data-id');
+                        activePetId = id;
+                        localStorage.setItem('obrapaw_active_pet_id', activePetId);
+                        switchTab('section-history');
+                    });
+                });
+            }
+
+            // Add Pet Form Handlers
+            const addPetModal = document.getElementById('add-pet-modal');
+            const addPetForm = document.getElementById('add-pet-form');
+            const addPetCancelBtn = document.getElementById('add-pet-cancel-btn');
+
+            addPetCancelBtn.addEventListener('click', () => {
+                addPetModal.classList.remove('show');
+            });
+
+            addPetForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const name = document.getElementById('add-pet-name-field').value;
+                const type = document.querySelector('input[name="add-pet-type"]:checked').value;
+                const age = parseInt(document.getElementById('add-pet-age-field').value);
+                const weight = parseFloat(document.getElementById('add-pet-weight-field').value);
+                const food = document.getElementById('add-pet-food-field').value;
+                const housing = document.querySelector('input[name="add-pet-housing"]:checked').value;
+                const health = document.getElementById('add-pet-health-field').value;
+                const vac = document.getElementById('add-pet-vac-field').checked;
+                const ster = document.getElementById('add-pet-ster-field').checked;
+
+                const selectedPlanRadio = document.querySelector('input[name="selected-plan"]:checked');
+                const planName = selectedPlanRadio ? selectedPlanRadio.value.toUpperCase() : "BÁSICO";
+
+                const newPet = {
+                    id: 'pet_' + Date.now(),
+                    name, type, age, weight, food, housing,
+                    health: health || "Ninguna",
+                    vaccinated: vac,
+                    sterilized: ster,
+                    plan: planName
+                };
+
+                pets.push(newPet);
+                localStorage.setItem('obrapaw_pets', JSON.stringify(pets));
+                activePetId = newPet.id;
+                localStorage.setItem('obrapaw_active_pet_id', activePetId);
+
+                // Add history entry
+                const entry = {
+                    id: 'entry_' + Date.now(),
+                    petId: newPet.id,
+                    title: 'Afiliación al Plan ' + planName,
+                    type: 'consulta',
+                    date: new Date().toISOString().split('T')[0],
+                    desc: `Ingreso al sistema de OBRA PAW. Mascota de tipo ${type}, vivienda en ${housing}, alimentación basada en ${food}. Vacunación inicial cargada.`
+                };
+                medicalHistory.push(entry);
+                localStorage.setItem('obrapaw_history', JSON.stringify(medicalHistory));
+
+                addPetForm.reset();
+                addPetModal.classList.remove('show');
+                renderProfile();
+                alert("¡Mascota registrada y afiliada correctamente!");
+            });
+
+            // --------------------------------------------------------------------------
+            // CLINICAL HISTORY & STUDY UPLOAD (INDEXEDDB)
+            // --------------------------------------------------------------------------
+            const activePetSelect = document.getElementById('history-pet-select');
+            const historyPetAvatar = document.getElementById('history-pet-avatar');
+            const historyPetName = document.getElementById('history-pet-name');
+            const historyPetSubtitle = document.getElementById('history-pet-subtitle');
+            const clinicalHistoryTimeline = document.getElementById('clinical-history-timeline');
+            
+            const addHistoryForm = document.getElementById('add-history-form');
+            const fileInput = document.getElementById('history-entry-files');
+            const selectedFilesContainer = document.getElementById('selected-files-container');
+
+            // Pre-populate date field to today
+            document.getElementById('history-entry-date').value = new Date().toISOString().split('T')[0];
+
+            function renderHistorySection() {
+                if (!pets.length) return;
+
+                // Populate Pet Selector
+                activePetSelect.innerHTML = '';
+                pets.forEach(pet => {
+                    const opt = document.createElement('option');
+                    opt.value = pet.id;
+                    opt.textContent = pet.name;
+                    if (pet.id === activePetId) opt.selected = true;
+                    activePetSelect.appendChild(opt);
+                });
+
+                // Get current active pet
+                const pet = pets.find(p => p.id === activePetId) || pets[0];
+                if (!pet) return;
+
+                activePetId = pet.id;
+                localStorage.setItem('obrapaw_active_pet_id', activePetId);
+
+                // Update active pet headers
+                historyPetAvatar.textContent = pet.type === 'gato' ? '🐱' : (pet.type === 'perro' ? '🐶' : '🐾');
+                historyPetName.textContent = pet.name;
+                historyPetSubtitle.textContent = `${pet.type === 'gato' ? 'Gato' : (pet.type === 'perro' ? 'Perro' : 'Otra')} • ${pet.age} ${pet.age === 1 ? 'año' : 'años'} • Cobertura: Plan ${pet.plan}`;
+
+                // Render timeline
+                renderTimeline(pet.id);
+            }
+
+            activePetSelect.addEventListener('change', (e) => {
+                activePetId = e.target.value;
+                localStorage.setItem('obrapaw_active_pet_id', activePetId);
+                renderHistorySection();
+            });
+
+            async function renderTimeline(petId) {
+                clinicalHistoryTimeline.innerHTML = '';
+
+                // Filter events for this pet and sort by date descending
+                const petEvents = medicalHistory.filter(ev => ev.petId === petId);
+                petEvents.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                if (petEvents.length === 0) {
+                    clinicalHistoryTimeline.innerHTML = `
+                        <div class="timeline-empty">
+                            <p style="font-size:1.1rem; font-weight:700;">Sin registros clínicos</p>
+                            <p style="font-size:0.85rem; margin-top:5px;">Utiliza el formulario de la derecha para registrar el primer evento de salud o estudio.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                for (const ev of petEvents) {
+                    const evCard = document.createElement('div');
+                    evCard.className = `timeline-event ${ev.type}`;
+                    
+                    const dParts = ev.date.split('-');
+                    const formattedDate = dParts.length === 3 ? `${dParts[2]}/${dParts[1]}/${dParts[0]}` : ev.date;
+
+                    // Fetch attached studies from IndexedDB
+                    const docs = await getStudiesByEvent(ev.id);
+                    let docsHTML = '';
+                    if (docs.length > 0) {
+                        docsHTML = `
+                            <div class="attached-docs">
+                                <h4>Estudios Adjuntos:</h4>
+                                <div class="docs-list">
+                                    ${docs.map(doc => `
+                                        <a href="#" class="doc-link view-doc-btn" data-doc-id="${doc.id}">
+                                            📄 ${doc.fileName} (${formatBytes(doc.fileSize)})
+                                        </a>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        `;
+                    }
+
+                    const typeLabel = ev.type === 'consulta' ? 'Consulta' : (ev.type === 'vacuna' ? 'Vacuna' : 'Estudio');
+
+                    evCard.innerHTML = `
+                        <div class="timeline-header">
+                            <span class="timeline-title">${ev.title}</span>
+                            <div class="timeline-meta">
+                                <span class="timeline-date">${formattedDate}</span>
+                                <span class="timeline-badge ${ev.type}">${typeLabel}</span>
+                            </div>
+                        </div>
+                        <div class="timeline-desc">${ev.desc}</div>
+                        ${docsHTML}
+                    `;
+                    clinicalHistoryTimeline.appendChild(evCard);
+                }
+
+                // Attach view/download listeners
+                document.querySelectorAll('.view-doc-btn').forEach(btn => {
+                    btn.addEventListener('click', async (e) => {
+                        e.preventDefault();
+                        const docId = parseInt(btn.getAttribute('data-doc-id'));
+                        const study = await getStudyFile(docId);
+                        if (study) {
+                            if (study.fileType.startsWith('image/')) {
+                                // View Image Lightbox
+                                document.getElementById('preview-image').src = study.dataUrl;
+                                document.getElementById('preview-filename').textContent = study.fileName;
+                                document.getElementById('preview-backdrop').classList.add('show');
+                            } else {
+                                // Download PDF
+                                const link = document.createElement('a');
+                                link.href = study.dataUrl;
+                                link.download = study.fileName;
+                                document.body.appendChild(link);
+                                link.click();
+                                document.body.removeChild(link);
+                            }
+                        }
+                    });
+                });
+            }
+
+            function getStudyFile(id) {
+                return new Promise((resolve, reject) => {
+                    const transaction = db.transaction([STORE_NAME], 'readonly');
+                    const store = transaction.objectStore(STORE_NAME);
+                    const request = store.get(id);
+                    request.onsuccess = () => resolve(request.result);
+                    request.onerror = (e) => reject(e.target.error);
+                });
+            }
+
+            // Lightbox close handler
+            const previewBackdrop = document.getElementById('preview-backdrop');
+            const previewCloseBtn = document.getElementById('preview-close-btn');
+            previewCloseBtn.addEventListener('click', () => previewBackdrop.classList.remove('show'));
+            previewBackdrop.addEventListener('click', (e) => {
+                if (e.target === previewBackdrop) previewBackdrop.classList.remove('show');
+            });
+
+            // File Input selection list
+            fileInput.addEventListener('change', () => {
+                const files = fileInput.files;
+                for (let i = 0; i < files.length; i++) {
+                    const file = files[i];
+                    
+                    if (file.size > 3 * 1024 * 1024) {
+                        alert(`El archivo ${file.name} supera los 3MB permitidos. Por favor, sube un archivo más pequeño.`);
+                        continue;
+                    }
+
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        tempUploadedFiles.push({
+                            name: file.name,
+                            size: file.size,
+                            type: file.type,
+                            dataUrl: e.target.result
+                        });
+                        renderTempFiles();
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            function renderTempFiles() {
+                selectedFilesContainer.innerHTML = '';
+                tempUploadedFiles.forEach((file, index) => {
+                    const item = document.createElement('div');
+                    item.className = 'file-item';
+                    item.innerHTML = `
+                        <span class="file-item-name">📄 ${file.name}</span>
+                        <button type="button" class="file-item-remove" data-idx="${index}">×</button>
+                    `;
+                    selectedFilesContainer.appendChild(item);
+                });
+
+                // Add delete listeners
+                document.querySelectorAll('.file-item-remove').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const idx = parseInt(btn.getAttribute('data-idx'));
+                        tempUploadedFiles.splice(idx, 1);
+                        renderTempFiles();
+                    });
+                });
+            }
+
+            // Save clinical history entry
+            addHistoryForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                if (!activePetId) {
+                    alert("No hay una mascota activa seleccionada.");
+                    return;
+                }
+
+                const title = document.getElementById('history-entry-title').value;
+                const type = document.getElementById('history-entry-type').value;
+                const date = document.getElementById('history-entry-date').value;
+                const desc = document.getElementById('history-entry-desc').value;
+
+                const entryId = 'entry_' + Date.now();
+
+                const newEntry = {
+                    id: entryId,
+                    petId: activePetId,
+                    title,
+                    type,
+                    date,
+                    desc
+                };
+
+                // Save entry metadata to LocalStorage
+                medicalHistory.push(newEntry);
+                localStorage.setItem('obrapaw_history', JSON.stringify(medicalHistory));
+
+                // Save files to IndexedDB
+                for (const file of tempUploadedFiles) {
+                    await saveStudyFile({
+                        petId: activePetId,
+                        eventId: entryId,
+                        fileName: file.name,
+                        fileType: file.type,
+                        fileSize: file.size,
+                        dataUrl: file.dataUrl,
+                        uploadDate: new Date().toISOString()
+                    });
+                }
+
+                // Reset form
+                addHistoryForm.reset();
+                document.getElementById('history-entry-date').value = new Date().toISOString().split('T')[0];
+                tempUploadedFiles = [];
+                selectedFilesContainer.innerHTML = '';
+
+                // Re-render
+                renderHistorySection();
+                alert("Evento médico guardado correctamente.");
+            });
+
+            function formatBytes(bytes) {
+                if (bytes === 0) return '0 B';
+                const k = 1024;
+                const sizes = ['B', 'KB', 'MB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+            }
+
+            // --------------------------------------------------------------------------
+            // PET SHOP CATALOG & CARTS (GLOBAL SIDE DRAWER)
+            // --------------------------------------------------------------------------
+            const productsGridContainer = document.getElementById('products-grid-container');
+            const cartItemsContainer = document.getElementById('main-cart-items-container');
+            const cartCountBadge = document.getElementById('main-cart-count-badge');
+            const cartSubtotal = document.getElementById('main-cart-subtotal');
+            const cartDiscountRow = document.getElementById('main-cart-discount-row');
+            const cartDiscount = document.getElementById('main-cart-discount');
+            const cartTotal = document.getElementById('main-cart-total');
+            const cartCheckoutBtn = document.getElementById('main-cart-checkout-btn');
+
+            const cartDrawerBackdrop = document.getElementById('cart-drawer-backdrop');
+            const cartDrawerCloseBtn = document.getElementById('cart-drawer-close-btn');
+            const mainCartToggleBtn = document.getElementById('main-cart-toggle-btn');
+
+            const successPopup = document.getElementById('success-popup');
+            const successPopupCloseBtn = document.getElementById('success-popup-close-btn');
+
+            // Drawer Toggle Event Listeners
+            mainCartToggleBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                cartDrawerBackdrop.classList.add('show');
+            });
+
+            cartDrawerCloseBtn.addEventListener('click', () => {
+                cartDrawerBackdrop.classList.remove('show');
+            });
+
+            cartDrawerBackdrop.addEventListener('click', (e) => {
+                if (e.target === cartDrawerBackdrop) {
+                    cartDrawerBackdrop.classList.remove('show');
+                }
+            });
+
+            function renderPetShop() {
+                productsGridContainer.innerHTML = '';
+                
+                PRODUCTS.forEach(prod => {
+                    const card = document.createElement('div');
+                    card.className = 'product-card';
+                    card.innerHTML = `
+                        <div class="product-image">
+                            <span class="product-badge">${prod.category}</span>
+                            ${prod.icon}
+                        </div>
+                        <div class="product-info">
+                            <div>
+                                <h3 class="product-title">${prod.title}</h3>
+                                <p class="product-desc">${prod.desc}</p>
+                            </div>
+                            <div class="product-price-row">
+                                <span class="product-price">$${prod.price.toLocaleString('es-AR')}</span>
+                                <button class="add-to-cart-btn" data-id="${prod.id}">+</button>
+                            </div>
+                        </div>
+                    `;
+                    productsGridContainer.appendChild(card);
+                });
+
+                // Add to cart listeners
+                document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const id = parseInt(btn.getAttribute('data-id'));
+                        addToCart(id);
+                    });
+                });
+            }
+
+            function addToCart(id) {
+                const prod = PRODUCTS.find(p => p.id === id);
+                if (!prod) return;
+
+                const cartItem = cart.find(item => item.id === id);
+                if (cartItem) {
+                    cartItem.quantity++;
+                } else {
+                    cart.push({ ...prod, quantity: 1 });
+                }
+
+                updateCartUI();
+
+                // Auto-open cart drawer when adding an item for premium feedback!
+                cartDrawerBackdrop.classList.add('show');
+            }
+
+            function updateCartUI() {
+                localStorage.setItem('obrapaw_cart', JSON.stringify(cart));
+                cartItemsContainer.innerHTML = '';
+
+                if (cart.length === 0) {
+                    cartItemsContainer.innerHTML = '<div class="cart-empty">Tu carrito está vacío</div>';
+                    cartCountBadge.textContent = '0';
+                    cartSubtotal.textContent = '$0';
+                    cartDiscountRow.style.display = 'none';
+                    cartTotal.textContent = '$0';
+                    cartCheckoutBtn.disabled = true;
+                    return;
+                }
+
+                let totalQty = 0;
+                let subtotal = 0;
+
+                cart.forEach(item => {
+                    totalQty += item.quantity;
+                    subtotal += item.price * item.quantity;
+
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'cart-item';
+                    itemDiv.innerHTML = `
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${item.title}</div>
+                            <div class="cart-item-price">$${(item.price * item.quantity).toLocaleString('es-AR')}</div>
+                        </div>
+                        <div class="cart-item-qty">
+                            <button class="qty-btn dec-qty-btn" data-id="${item.id}">-</button>
+                            <span class="qty-val">${item.quantity}</span>
+                            <button class="qty-btn inc-qty-btn" data-id="${item.id}">+</button>
+                        </div>
+                        <button class="cart-item-remove remove-item-btn" data-id="${item.id}">🗑</button>
+                    `;
+                    cartItemsContainer.appendChild(itemDiv);
+                });
+
+                cartCountBadge.textContent = totalQty;
+                cartSubtotal.textContent = `$${subtotal.toLocaleString('es-AR')}`;
+
+                // 15% discount for Obrapaw Prepaga affiliates!
+                let discountVal = 0;
+                if (affiliateData) {
+                    discountVal = Math.round(subtotal * 0.15);
+                    cartDiscountRow.style.display = 'flex';
+                    cartDiscount.textContent = `-$${discountVal.toLocaleString('es-AR')}`;
+                } else {
+                    cartDiscountRow.style.display = 'none';
+                }
+
+                const totalVal = subtotal - discountVal;
+                cartTotal.textContent = `$${totalVal.toLocaleString('es-AR')}`;
+                cartCheckoutBtn.disabled = false;
+
+                // Attach listeners inside cart
+                document.querySelectorAll('.dec-qty-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const id = parseInt(btn.getAttribute('data-id'));
+                        const item = cart.find(i => i.id === id);
+                        if (item) {
+                            item.quantity--;
+                            if (item.quantity <= 0) {
+                                cart = cart.filter(i => i.id !== id);
+                            }
+                            updateCartUI();
+                        }
+                    });
+                });
+
+                document.querySelectorAll('.inc-qty-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const id = parseInt(btn.getAttribute('data-id'));
+                        const item = cart.find(i => i.id === id);
+                        if (item) {
+                            item.quantity++;
+                            updateCartUI();
+                        }
+                    });
+                });
+
+                document.querySelectorAll('.remove-item-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const id = parseInt(btn.getAttribute('data-id'));
+                        cart = cart.filter(i => i.id !== id);
+                        updateCartUI();
+                    });
+                });
+            }
+
+            // Checkout Order
+            cartCheckoutBtn.addEventListener('click', () => {
+                if (cart.length === 0) return;
+
+                const titleEl = document.getElementById('success-popup-title');
+                const msgEl = document.getElementById('success-popup-message');
+
+                if (affiliateData) {
+                    titleEl.textContent = '¡Pedido Recibido! 🎉';
+                    msgEl.innerHTML = `Gracias por tu compra, <strong>${affiliateData.name}</strong>.<br>Se aplicó un <strong>15% de descuento</strong> de afiliado Obrapaw.<br>Enviaremos el pedido a la dirección: <strong>${affiliateData.address}</strong>.`;
+                } else {
+                    titleEl.textContent = '¡Compra Exitosa! 🛍';
+                    msgEl.innerHTML = `Gracias por tu compra.<br>Recuerda afiliarte a Obrapaw para obtener un <strong>15% de descuento</strong> automático en tus próximas compras.`;
+                }
+
+                successPopup.classList.add('show');
+                cartDrawerBackdrop.classList.remove('show'); // Close side drawer
+
+                // Clear cart
+                cart = [];
+                updateCartUI();
+            });
+
+            successPopupCloseBtn.addEventListener('click', () => {
+                successPopup.classList.remove('show');
+            });
+
+            // Initial status update
+            updateStatusIndicator();
         });
     </script>
 </body>
